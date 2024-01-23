@@ -14,10 +14,10 @@ export default function Home() {
           </p>
         </div>
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          Chat with your <span className="text-blue-600 ">Documents</span> in seconds
+          Chat with your <span className="text-green-600 ">Documents</span> in seconds
         </h1>
         <p className="mt-5 max-w-prose text-zinc-700 sm:text-lg">
-          Cerebro is a <span className="text-blue-500">AI - powered </span> application that uses openAI api to fetch and display results interacting with you PDFs.
+          Cerebro is a <span className="text-green-500">AI - powered </span> application that uses openAI api to fetch and display results interacting with you PDFs.
         </p>
         <Link className={buttonVariants({
           size: 'lg',
@@ -54,8 +54,8 @@ export default function Home() {
                     height={866}
                     quality={100}
                     className="rounded-md bg-white p-2 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
-                  />
-                </div>
+                  /> 
+                </div> 
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Home() {
         <ol className='my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0'>
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-green-600'>
                 Step 1
               </span>
               <span className='text-xl font-semibold'>
@@ -103,7 +103,7 @@ export default function Home() {
                 choose our{' '}
                 <Link
                   href='/pricing'
-                  className='text-blue-700 underline underline-offset-2'>
+                  className='text-green-700 underline underline-offset-2'>
                   pro plan
                 </Link>
                 . It is free either way ;{")"}
@@ -112,7 +112,7 @@ export default function Home() {
           </li>
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-green-600'>
                 Step 2
               </span>
               <span className='text-xl font-semibold'>
@@ -126,7 +126,7 @@ export default function Home() {
           </li>
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
+              <span className='text-sm font-medium text-green-600'>
                 Step 3
               </span>
               <span className='text-xl font-semibold'>

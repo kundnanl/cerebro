@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar'
 import { QueryClientProvider } from '@tanstack/react-query'
 import Providers from '@/components/Providers'
 
+import "react-loading-skeleton/dist/skeleton.css"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
