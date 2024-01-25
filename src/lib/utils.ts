@@ -45,10 +45,10 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@joshtriedcoding"
+      creator: "@LakshKundnani"
     },
     icons,
-    metadataBase: new URL('https://cerebro-jet.vercel.app'),
+    metadataBase: new URL('https://cerebro-alpha.vercel.app'),
     themeColor: '#FFF',
     ...(noIndex && {
       robots: {

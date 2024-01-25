@@ -37,6 +37,7 @@ const UploadDropzone = ({
     {
       onSuccess: (file) => {
         router.push(`/dashboard/${file.id}`)
+        console.log('this path is called to redirect', file.id)
       },
       retry: true,
       retryDelay: 500,
@@ -89,6 +90,7 @@ const UploadDropzone = ({
             variant: 'destructive',
           })
         }
+        console.log(key)
 
         clearInterval(progressInterval)
         setUploadProgress(100)

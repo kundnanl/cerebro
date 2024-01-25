@@ -14,6 +14,7 @@ import {
   stripe,
 } from '@/lib/stripe'
 import { PLANS } from '@/config/stripe'
+import { log } from 'console'
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -42,6 +43,7 @@ export const appRouter = router({
 
     return { success: true }
   }),
+
   getUserFiles: privateProcedure.query(async ({ ctx }) => {
     const { userId } = ctx
 
@@ -180,6 +182,8 @@ export const appRouter = router({
     .input(z.object({ key: z.string() }))
     .mutation(async ({ ctx, input }) => {
       const { userId } = ctx
+      console.log('this is the userId', userId)
+      console.log('thi is the ctx', ctx, ' and input',input)
 
       const file = await db.file.findFirst({
         where: {
@@ -187,8 +191,6 @@ export const appRouter = router({
           userId,
         },
       })
-
-      if (!file) throw new TRPCError({ code: 'NOT_FOUND' })
 
       return file
     }),
