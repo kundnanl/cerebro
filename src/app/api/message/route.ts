@@ -1,7 +1,7 @@
 import { db } from '@/db'
 import { openai } from '@/lib/openai'
 import { getPineconeClient } from '@/lib/pinecone'
-import { SendMessageValidator } from '@/lib/validators/SendMessageValidator'
+import { SendMessageValidator } from '../../../lib/validators/SendMessageValidator'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { PineconeStore } from 'langchain/vectorstores/pinecone'
