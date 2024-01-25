@@ -1,32 +1,39 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-
-import Image from "next/image";
-import { Icons } from "./Icons";
+import { getUserSubscriptionPlan } from '@/lib/stripe'
 import {
-  DropdownMenuSeparator,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import Link from "next/link";
-import { Gem } from "lucide-react";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/server";
+} from './ui/dropdown-menu'
+import { Button } from './ui/button'
+import { Avatar, AvatarFallback } from './ui/avatar'
+import Image from 'next/image'
+import { Icons } from './Icons'
+import Link from 'next/link'
+import { Gem } from 'lucide-react'
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/server'
 
 interface UserAccountNavProps {
-  email: string | undefined;
-  name: string;
-  imageUrl: string;
+  email: string | undefined
+  name: string
+  imageUrl: string
 }
 
-async function UserAccountNav({ email, imageUrl, name }: UserAccountNavProps) {
+const UserAccountNav = async ({
+  email,
+  imageUrl,
+  name,
+}: UserAccountNavProps) => {
+  const subscriptionPlan = await getUserSubscriptionPlan()
+
   return (
     <DropdownMenu>
-    <DropdownMenuTrigger
-      asChild
-      className='overflow-visible'>
-        <button className="rounded-full h-8 w-8 aspect-square bg-slate-400">
-        <Avatar className='relative w-8 h-8'>
+      <DropdownMenuTrigger
+        asChild
+        className='overflow-visible'>
+        <Button className='rounded-full h-8 w-8 aspect-square bg-slate-400'>
+          <Avatar className='relative w-8 h-8'>
             {imageUrl ? (
               <div className='relative aspect-square h-full w-full'>
                 <Image
@@ -43,8 +50,9 @@ async function UserAccountNav({ email, imageUrl, name }: UserAccountNavProps) {
               </AvatarFallback>
             )}
           </Avatar>
-        </button>
+        </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent className='bg-white' align='end'>
         <div className='flex items-center justify-start gap-2 p-2'>
           <div className='flex flex-col space-y-0.5 leading-none'>
@@ -68,12 +76,16 @@ async function UserAccountNav({ email, imageUrl, name }: UserAccountNavProps) {
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          
+          {subscriptionPlan?.isSubscribed ? (
+            <Link href='/dashboard/billing'>
+              Manage Subscription
+            </Link>
+          ) : (
             <Link href='/pricing'>
               Upgrade{' '}
               <Gem className='text-blue-600 h-4 w-4 ml-1.5' />
             </Link>
-
+          )}
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

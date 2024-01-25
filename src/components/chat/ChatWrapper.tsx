@@ -7,6 +7,7 @@ import { ChevronLeft, Loader2, XCircle } from 'lucide-react'
 import Link from 'next/link'
 import { buttonVariants } from '../ui/button'
 import { ChatContextProvider } from './ChatContext'
+import { PLANS } from '@/config/stripe'
 
 interface ChatWrapperProps {
   fileId: string
@@ -15,6 +16,7 @@ interface ChatWrapperProps {
 
 const ChatWrapper = ({
   fileId,
+  isSubscribed,
 }: ChatWrapperProps) => {
   const { data, isLoading } =
     trpc.getFileUploadStatus.useQuery(
@@ -35,7 +37,7 @@ const ChatWrapper = ({
       <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
         <div className='flex-1 flex justify-center items-center flex-col mb-28'>
           <div className='flex flex-col items-center gap-2'>
-            <Loader2 className='h-8 w-8 text-violet-500 animate-spin' />
+            <Loader2 className='h-8 w-8 text-blue-500 animate-spin' />
             <h3 className='font-semibold text-xl'>
               Loading...
             </h3>
@@ -54,7 +56,7 @@ const ChatWrapper = ({
       <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
         <div className='flex-1 flex justify-center items-center flex-col mb-28'>
           <div className='flex flex-col items-center gap-2'>
-            <Loader2 className='h-8 w-8 text-violet-500 animate-spin' />
+            <Loader2 className='h-8 w-8 text-blue-500 animate-spin' />
             <h3 className='font-semibold text-xl'>
               Processing PDF...
             </h3>
@@ -80,9 +82,14 @@ const ChatWrapper = ({
             <p className='text-zinc-500 text-sm'>
               Your{' '}
               <span className='font-medium'>
-                { 'Free'}
+                {isSubscribed ? 'Pro' : 'Free'}
               </span>{' '}
-              plan supports up to{'16'}
+              plan supports up to{' '}
+              {isSubscribed
+                ? PLANS.find((p) => p.name === 'Pro')
+                    ?.pagesPerPdf
+                : PLANS.find((p) => p.name === 'Free')
+                    ?.pagesPerPdf}{' '}
               pages per PDF.
             </p>
             <Link
