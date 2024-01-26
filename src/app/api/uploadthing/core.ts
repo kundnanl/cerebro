@@ -53,6 +53,10 @@ const onUploadComplete = async ({
       uploadStatus: 'PROCESSING',
     },
   })
+  console.log(file.key);
+  console.log(file.name)
+  console.log(file.url)
+  
 
   try {
     const response = await fetch(

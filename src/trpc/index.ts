@@ -14,7 +14,6 @@ import {
   stripe,
 } from '@/lib/stripe'
 import { PLANS } from '@/config/stripe'
-import { log } from 'console'
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -43,7 +42,6 @@ export const appRouter = router({
 
     return { success: true }
   }),
-
   getUserFiles: privateProcedure.query(async ({ ctx }) => {
     const { userId } = ctx
 
@@ -92,7 +90,7 @@ export const appRouter = router({
         await stripe.checkout.sessions.create({
           success_url: billingUrl,
           cancel_url: billingUrl,
-          payment_method_types: ['card'],
+          payment_method_types: ['card', 'paypal'],
           mode: 'subscription',
           billing_address_collection: 'auto',
           line_items: [
@@ -181,16 +179,17 @@ export const appRouter = router({
   getFile: privateProcedure
     .input(z.object({ key: z.string() }))
     .mutation(async ({ ctx, input }) => {
-      const { userId, user } = ctx
+      const { userId } = ctx
 
       const file = await db.file.findFirst({
         where: {
           key: input.key,
-          userId
+          userId,
         },
       })
 
       if (!file) throw new TRPCError({ code: 'NOT_FOUND' })
+
       return file
     }),
 
