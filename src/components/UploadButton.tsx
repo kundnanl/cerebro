@@ -39,7 +39,15 @@ const UploadDropzone = ({
         router.push(`/dashboard/${file.id}`)
       },
       retryDelay: 1500,
-      retry: true
+      retry: true,
+      onError() {
+        router.push(`/dashboard`)
+        return toast({
+          title: 'Unable to redirect automatically',
+          description: 'Please try again later',
+          variant: 'destructive',
+        })
+      }
     }
   )
 
