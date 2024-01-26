@@ -24,6 +24,7 @@ const Dashboard = ({subscriptionPlan}: PageProps) => {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] =
     useState<string | null>(null)
 
+
   const utils = trpc.useContext()
 
   const { data: files, isLoading } =
@@ -91,7 +92,7 @@ const Dashboard = ({subscriptionPlan}: PageProps) => {
 
                   <div className='flex items-center gap-2'>
                     <MessageSquare className='h-4 w-4' />
-                    {}
+                    {file.uploadStatus}
                   </div>
 
                   <Button

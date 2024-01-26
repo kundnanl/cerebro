@@ -53,11 +53,6 @@ const onUploadComplete = async ({
       uploadStatus: 'PROCESSING',
     },
   })
-  console.log(file.key);
-  console.log(file.name)
-  console.log(file.url)
-  
-
   try {
     const response = await fetch(
       `https://utfs.io/f/${file.key}`
@@ -130,7 +125,6 @@ const onUploadComplete = async ({
         id: createdFile.id,
       },
     })
-    console.log("This is an error from uploading")
   }
 }
 
