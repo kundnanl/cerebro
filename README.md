@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cerebro
+
+![Cerebro Logo](public/thumbnail.png)
+
+Cerebro is a complete Software as a Service (SaaS) platform developed by Laksh Kundnani. This project is built from scratch using Next.js 13, React, Prisma, tRPC, Tailwind, and other cutting-edge technologies. It serves as a comprehensive example of building a modern SaaS application with a rich feature set.
+
+## Features
+
+- **Complete SaaS Platform**: Fully functional SaaS application built from the ground up.
+- **Beautiful UI**: Professionally designed landing and pricing pages included for a modern and clean user interface.
+- **Authentication Using Kinde**: Secure user authentication powered by Kinde.
+- **Subscription Plans**: Free and Pro plans integrated with Stripe for seamless payment processing.
+- **Infinite Message Loading**: Optimized for performance with infinite message loading.
+- **PDF Viewer**: A beautiful and highly functional PDF viewer for enhanced document viewing.
+- **Real-Time Streaming API**: Receive real-time updates with streaming API responses.
+- **Optimistic UI Updates**: Enhance user experience with optimistic UI updates.
+- **Drag n’ Drop Uploads**: Intuitive file uploads with drag-and-drop functionality.
+- **Instant Loading States**: Achieve instant loading states for a seamless user experience.
+- **Modern Data Fetching**: Utilize tRPC and Zod for modern and efficient data fetching.
+- **AI Memory with LangChain**: Leverage LangChain for infinite AI memory.
+- **Vector Storage with Pinecone**: Efficient vector storage using Pinecone.
+- **ORM with Prisma**: Database interactions powered by Prisma.
+- **100% TypeScript**: The entire project is written in TypeScript for type safety.
+
+...and much more!
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository and follow the project videos for a detailed walkthrough of Cerebro's development process.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Author
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Laksh Kundnani**
+  - GitHub: [https://github.com/kundnanl](https://github.com/kundnanl)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to contribute, open issues, or provide feedback to make Cerebro even better!
